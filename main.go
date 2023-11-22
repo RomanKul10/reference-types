@@ -4,31 +4,17 @@ import "fmt"
 
 // reference types - типи посилань (pointers -вказівник, slices, maps, functions, channels)
 
-// map
+// functions
 
 func main() {
-	intMap := make(map[string]int)
+	myTotal := sumMany(2, 6, 7, 9, -5)
+	fmt.Println(myTotal)
+}
+func sumMany(nums ...int) int {
+	total := 0
 
-	intMap["one"] = 1
-	intMap["two"] = 2
-	intMap["three"] = 3
-	intMap["four"] = 4
-	intMap["five"] = 5
-
-	for key, value := range intMap {
-		fmt.Println(key, value)
+	for _, x := range nums {
+		total = total + x
 	}
-
-	//delete(intMap, "four")
-
-	el, ok := intMap["four"]
-	if ok {
-		fmt.Println(el, "is in map")
-	} else {
-		fmt.Println(el, "is in not map")
-	}
-
-	intMap["two"] = 4
-	fmt.Println(intMap)
-
+	return total
 }
